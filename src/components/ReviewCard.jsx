@@ -11,7 +11,6 @@ const ReviewCard = ({reviews, setReviews}) => {
     return (
         <section>
                 {reviews.map((review) => {
-                    console.log(review, "<- review")
             return <ul className="list" key={review.review_id}>
                         <li> <h2 id="review-title"> {review.title}</h2> </li>
                         <li id="review-img"><img src={review.review_img_url}></img></li>
