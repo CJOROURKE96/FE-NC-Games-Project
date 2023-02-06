@@ -1,6 +1,6 @@
 const Header = () => {
     return (
-        <h1 class="Header"> NC Games Reviews </h1>
+        <h1 className="Header"> NC Games Reviews </h1>
     )
 }
 
