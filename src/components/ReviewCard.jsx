@@ -1,13 +1,23 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { getReviews } from "../utils/api"
 
 const ReviewCard = ({reviews, setReviews}) => {
+    const [isLoading, setIsLoading] = useState(true)
+
+
 
     useEffect(() => {
+        setIsLoading(true)
         getReviews().then((reviews) => {
             setReviews(reviews)
+            setIsLoading(false)
         })
     }, [])
+
+    if (isLoading) {
+        return <p>Loading reviews ...</p>
+    } else 
+
     return (
         <section>
                 {reviews.map((review) => {
