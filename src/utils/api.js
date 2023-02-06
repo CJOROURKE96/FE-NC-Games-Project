@@ -5,9 +5,9 @@ const reviewsAPI = axios.create({
 })
 
 export const getReviews = () => {
-    return reviewsAPI.get('/')
+    return reviewsAPI.get('/reviews')
     .then(({data}) => {
-        console.log(data)
+        return data.reviews
     })
 
 }
