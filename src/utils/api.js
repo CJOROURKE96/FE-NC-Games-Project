@@ -11,3 +11,15 @@ export const getReviews = () => {
     })
 
 }
+
+export const getReviewsByReviewId = (review_id) => {
+    return reviewsAPI
+    .get(`/reviews/${review_id}`, {
+        params: {
+            review_id: review_id
+        }
+    })
+    .then(({data}) => {
+        return data.review
+    })
+}
