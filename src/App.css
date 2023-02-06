@@ -1,0 +1,22 @@
+* {
+    text-align: center;
+    align-content: center;
+    background-color: rgb(41, 249, 41);
+
+}
+
+.Header {
+    color: rgb(134, 40, 248);
+    background-color: whitesmoke;
+    border: solid;
+    border-color: rgb(255, 76, 76);
+
+}
+
+.list {
+    list-style-type: none;
+}
+
+#review-title {
+    color: rgb(0, 136, 255);
+}
