@@ -8,15 +8,49 @@
 .Header {
     color: rgb(134, 40, 248);
     background-color: whitesmoke;
-    border: solid;
-    border-color: rgb(255, 76, 76);
-
 }
 
 .list {
     list-style-type: none;
 }
 
-#review-title {
-    color: rgb(0, 136, 255);
+.single-review-heading {
+    display: inline-block;
+    padding: 10px
 }
+
+#review-title {
+    color: rgb(125, 108, 83);
+}
+
+#game-designer {
+    color: rgb(106, 106, 106);
+    border-style: dashed;
+    border-color: rgb(106, 106, 106);
+}
+
+.single-review-footer {
+    display: inline-block;
+    padding: 10px
+}
+
+#review-owner {
+    position: relative;
+    right: 195px;
+    border-style: dotted;
+    border-color: blueviolet;
+    color: blueviolet;
+}
+
+#single-review-body {
+    border-style: double;
+    position: relative;
+    top: 25px
+
+}
+
+#review-comments {
+    position: relative;
+    top: 25px
+}
+

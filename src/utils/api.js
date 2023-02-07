@@ -11,3 +11,11 @@ export const getReviews = () => {
     })
 
 }
+
+export const getReviewsByReviewId = (review_id) => {
+    return reviewsAPI
+    .get(`/reviews/${review_id}`)
+    .then(({data}) => {
+        return data.review
+    })
+}
