@@ -20,7 +20,7 @@
 }
 
 #review-title {
-    color: rgb(0, 136, 255);
+    color: rgb(125, 108, 83);
 }
 
 #game-designer {
@@ -40,5 +40,17 @@
     border-style: dotted;
     border-color: blueviolet;
     color: blueviolet;
+}
+
+#single-review-body {
+    border-style: double;
+    position: relative;
+    top: 25px
+
+}
+
+#review-comments {
+    position: relative;
+    top: 25px
 }
 
