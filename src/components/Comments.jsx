@@ -22,11 +22,11 @@ if(isLoading) {
 return (
     <section>
         {comments.map((comment) => {
-        return <ul key={comment.comment_id}>
+        return <ul className="list" key={comment.comment_id}>
                 {console.log(comment, "<- comment")}
-                <li id='comment-author'>{comment.author}</li>
+                <li id='comment-author'> <h3>{comment.author}</h3></li>
                 <li id='comment-body'>{comment.body}</li>
-                <li id='comment-votes'>{comment.votes}</li>
+                <li id='comment-votes'> 👍 {comment.votes} 👎</li>
             </ul>
             })}
     </section>

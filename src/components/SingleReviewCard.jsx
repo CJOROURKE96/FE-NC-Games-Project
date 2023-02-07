@@ -18,6 +18,7 @@ const SingleReviewCard = ({review, setReview}) => {
         return <p>Review is Loading ...</p>
     } else
 
+    console.log(review, "<- Review")
     return (
         <section>
             <ul className="list">
@@ -27,7 +28,7 @@ const SingleReviewCard = ({review, setReview}) => {
                         <li className="single-review-footer" id='review-owner'>Review Author: {review.owner}</li>
                         <li className="single-review-footer" id="review-votes"> 👍 {review.votes} 👎</li>
                         <li id="single-review-body"> {review.review_body} </li>
-                        <li id="review-comments"> <h3> <Link to={`/reviews/${review_id}/comments`}> Comments: </Link> </h3> <h4>{review.comments}</h4></li>
+                        <li className="review-comment-count"> <h3 id='comment-count-heading'> <Link to={`/reviews/${review_id}/comments`}> Comment Section: </Link> </h3></li>
                     
                     </ul>
         </section>
