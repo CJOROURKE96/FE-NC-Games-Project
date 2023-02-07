@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { getReviewsByReviewId } from "../utils/api"
 
 const SingleReviewCard = ({review, setReview}) => {
@@ -27,7 +27,7 @@ const SingleReviewCard = ({review, setReview}) => {
                         <li className="single-review-footer" id='review-owner'>Review Author: {review.owner}</li>
                         <li className="single-review-footer" id="review-votes"> 👍 {review.votes} 👎</li>
                         <li id="single-review-body"> {review.review_body} </li>
-                        <li id="review-comments"> <h3>Comments:</h3> <h4>{review.comments}</h4></li>
+                        <li id="review-comments"> <h3> <Link to={`/reviews/${review_id}/comments`}> Comments: </Link> </h3> <h4>{review.comments}</h4></li>
                     
                     </ul>
         </section>

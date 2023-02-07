@@ -3,6 +3,7 @@ import {Routes, Route} from 'react-router-dom'
 import Header from './components/Header';
 import Reviews from './components/Reviews';
 import SingleReview from './components/SingleReview';
+import Comments from './components/Comments';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Reviews />}></Route>
         <Route path='/reviews/:review_id' element={<SingleReview />}></Route>
+        <Route path='/reviews/:review_id/comments' element={<Comments />}></Route>
         </Routes>
     </div>
   );

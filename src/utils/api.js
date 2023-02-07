@@ -5,7 +5,8 @@ const reviewsAPI = axios.create({
 })
 
 export const getReviews = () => {
-    return reviewsAPI.get('/reviews')
+    return reviewsAPI
+    .get('/reviews')
     .then(({data}) => {
         return data.reviews
     })
@@ -17,5 +18,14 @@ export const getReviewsByReviewId = (review_id) => {
     .get(`/reviews/${review_id}`)
     .then(({data}) => {
         return data.review
+    })
+}
+
+export const getComments = (review_id) => {
+    return reviewsAPI
+    .get(`/reviews/${review_id}/comments`)
+    .then(({data}) => {
+        return data.comments
+        
     })
 }
