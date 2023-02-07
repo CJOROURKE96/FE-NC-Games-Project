@@ -10,15 +10,17 @@ const SingleReviewCard = ({review, setReview}) => {
             setReview(reviewById)
         })
     }, [review_id])
+    console.log(review_id, "<-- ID")
     console.log(review, "<- Review")
-    console.log(review_id, "<- Review Id")
     return (
         <section>
             <ul className="list">
-                        <li> <h2 id="review-title"> {review.title}</h2> </li>
+                        <li className="single-review-heading"> <h2 id="review-title"> {review.title}</h2> </li>
+                        <li className="single-review-heading" id='game-designer'>Game Designer: {review.designer}</li>
                         <li id="review-img"><img src={review.review_img_url}></img></li>
-                        <li id="review-votes"> <h3>Votes: </h3> <h4>{review.votes}</h4></li>
-                        <li id="review-comments"> <h3>Comment Count: </h3> <h4>{review.comment_count}</h4></li>
+                        <li className="single-review-footer" id='review-owner'>Review Author: {review.owner}</li>
+                        <li className="single-review-footer" id="review-votes"> 👍 {review.votes} 👎</li>
+                        <li id="review-comments"> <h3>Comments:</h3> <h4>{review.comments}</h4></li>
                     
                     </ul>
         </section>
