@@ -72,3 +72,8 @@
 .votes-total {
     padding: 5px
 }
+
+.button:disabled,
+button[disabled] {
+    background-color: rgba(204, 204, 204, 0.561);
+}
