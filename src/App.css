@@ -1,8 +1,11 @@
 * {
     text-align: center;
     align-content: center;
-    background-color: rgb(41, 249, 41);
 
+}
+
+.app-bar {
+    background-color: royalblue;
 }
 
 .Header {
