@@ -13,9 +13,9 @@ const Votes = ({votes, review_id}) => {
 
     return (
         <div>
-            <button disabled={votesChange === -1} onClick={() => incVotes(-1)}>🔻</button>
-            <span>{votes + votesChange}</span>
-            <button disabled={votesChange === 1} onClick={() => incVotes(1)}>🔺</button>
+            <button className="negative-vote" disabled={votesChange === -1} onClick={() => incVotes(-1)}>🔻</button>
+            <span className="votes-total">{votes + votesChange}</span>
+            <button className="positive-vote" disabled={votesChange === 1} onClick={() => incVotes(1)}>🔺</button>
         </div>
     )
 }

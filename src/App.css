@@ -68,3 +68,7 @@
 #comment-body {
     border-style: solid;
 }
+
+.votes-total {
+    padding: 5px
+}

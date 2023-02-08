@@ -36,7 +36,6 @@ export const patchVotesByReviewId = (review_id, vote_inc) => {
     }
 
     return reviewsAPI
-    .patch(`/reviews/${review_id}`, patchBody).then(({data}) => {
-        console.log(data)
-    })
+    .patch(`/reviews/${review_id}`, patchBody)
+    
 }
