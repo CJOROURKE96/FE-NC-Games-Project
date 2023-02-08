@@ -91,7 +91,7 @@ const ReviewCard = ({reviews, setReviews}) => {
           {/* End hero unit */}
           <Grid container spacing={4}>
             {reviews.map((review) => (
-              <Grid item key={review} xs={12} sm={6} md={4}>
+              <Grid item key={review.review_id} xs={12} sm={6} md={4}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >

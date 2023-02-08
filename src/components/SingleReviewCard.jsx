@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams, Link } from "react-router-dom"
 import { getReviewsByReviewId } from "../utils/api"
 import Comments from './Comments'
+import Votes from "./Votes"
 
 const SingleReviewCard = ({review, setReview}) => {
     const {review_id} = useParams()
@@ -19,7 +20,6 @@ const SingleReviewCard = ({review, setReview}) => {
         return <p>Review is Loading ...</p>
     } else
 
-    console.log(review, "<- Review")
     return (
         <section>
             <ul className="list">
@@ -27,7 +27,7 @@ const SingleReviewCard = ({review, setReview}) => {
                         <li className="single-review-heading" id='game-designer'>Game Designer: {review.designer}</li>
                         <li className="review-img"><img src={review.review_img_url} alt={review.title}></img></li>
                         <li className="single-review-footer" id='review-owner'>Review Author: {review.owner}</li>
-                        <li className="single-review-footer" id="review-votes"> 👍 {review.votes} 👎</li>
+                        <li className="single-review-footer"><Votes votes={review.votes} review_id={review_id}/></li>
                         <li id="single-review-body"> {review.review_body} </li>
                         <li className="review-comment-count"> <h3 id='comment-count-heading'> <Link to={`/reviews/${review_id}/comments`}> Comment Section: </Link> </h3></li>
                         <li><Comments /></li>

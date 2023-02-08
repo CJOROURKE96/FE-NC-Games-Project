@@ -29,3 +29,13 @@ export const getComments = (review_id) => {
         
     })
 }
+
+export const patchVotesByReviewId = (review_id, vote_inc) => {
+    const patchBody = { 
+        inc_votes: vote_inc
+    }
+
+    return reviewsAPI
+    .patch(`/reviews/${review_id}`, patchBody)
+    
+}

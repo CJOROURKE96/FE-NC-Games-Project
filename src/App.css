@@ -68,3 +68,12 @@
 #comment-body {
     border-style: solid;
 }
+
+.votes-total {
+    padding: 15px
+}
+
+.button:disabled,
+button[disabled] {
+    background-color: rgba(204, 204, 204, 0.561);
+}
