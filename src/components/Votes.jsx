@@ -1,3 +1,4 @@
+import Button from '@mui/material/Button';
 import { useState } from "react"
 import { patchVotesByReviewId } from "../utils/api"
 
@@ -13,9 +14,9 @@ const Votes = ({votes, review_id}) => {
 
     return (
         <div>
-            <button className="negative-vote" disabled={votesChange === -1} onClick={() => incVotes(-1)}>🔻</button>
-            <span className="votes-total">{votes + votesChange}</span>
-            <button className="positive-vote" disabled={votesChange === 1} onClick={() => incVotes(1)}>🔺</button>
+            <Button variant='contained' className="negative-vote" disabled={votesChange === -1} onClick={() => incVotes(-1)}>🔻</Button>
+            <span className="votes-total"><em>{votes + votesChange}</em></span>
+            <Button variant='contained' className="positive-vote" disabled={votesChange === 1} onClick={() => incVotes(1)}>🔺</Button>
         </div>
     )
 }
