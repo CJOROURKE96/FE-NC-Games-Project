@@ -1,7 +1,6 @@
 * {
     text-align: center;
     align-content: center;
-
 }
 
 .app-bar {
@@ -57,3 +56,15 @@
     top: 25px
 }
 
+.review-comment-count {
+    padding: 20px
+}
+
+#comment-author {
+    text-decoration: underline;
+    color: rgb(106, 106, 106)
+}
+
+#comment-body {
+    border-style: solid;
+}
