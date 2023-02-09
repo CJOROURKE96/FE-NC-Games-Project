@@ -39,3 +39,12 @@ export const patchVotesByReviewId = (review_id, vote_inc) => {
     .patch(`/reviews/${review_id}`, patchBody)
     
 }
+
+export const postComment = (review_id, comment, username) => {
+const postBody = {
+    username: username,
+    body: comment
+}
+    return reviewsAPI
+    .post(`/reviews/${review_id}/comments`, postBody)
+}

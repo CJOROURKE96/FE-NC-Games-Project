@@ -77,3 +77,17 @@
 button[disabled] {
     background-color: rgba(204, 204, 204, 0.561);
 }
+
+#comment-form {
+    padding: 25px;
+}
+
+#comment-label {
+    position: relative;
+    bottom: 10px
+}
+
+#comment-button {
+    position: relative;
+    bottom: 13px;
+}

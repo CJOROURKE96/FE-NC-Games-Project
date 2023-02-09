@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getComments } from "../utils/api"
+import AddComment from "./AddComment"
 
 const Comments = () => {
 const {review_id} = useParams()
@@ -16,7 +17,13 @@ useEffect(() => {
 }, [review_id])
 
 if(comments.length === 0) {
-    return <p>Comment Section Empty!</p>
+    return (
+        <section>
+        <p>Comment Section Empty!</p>
+        <AddComment review_id={review_id} comments={comments} setComments={setComments}/>
+        </section>
+    )
+
 } 
 
 if(isLoading) {
@@ -32,6 +39,7 @@ return (
                 <li id='comment-votes'> 👍 {comment.votes} 👎</li>
             </ul>
             })}
+            <AddComment review_id={review_id} comments={comments} setComments={setComments}/>
     </section>
 )
 }
