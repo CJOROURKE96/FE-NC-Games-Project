@@ -12,9 +12,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useEffect, useState } from "react"
-import { getReviews } from "../utils/api"
-import {Link} from 'react-router-dom'
+import { Link} from 'react-router-dom'
 
 function Copyright() {
   return (
@@ -29,31 +27,18 @@ function Copyright() {
 
 const theme = createTheme();
 
-const ReviewCard = ({reviews, setReviews}) => {
-    const [isLoading, setIsLoading] = useState(true)
-
-    useEffect(() => {
-        setIsLoading(true)
-        getReviews().then((reviews) => {
-            setReviews(reviews)
-            setIsLoading(false)
-        })
-    }, [])
-
-    if (isLoading) {
-        return <p>Loading reviews ...</p>
-    } else 
+const ReviewCard = ({review}) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar className='app-bar' >
           <Typography variant="h6" color="inherit" noWrap>
+            <Button variant='contained'>PLACEHOLDER</Button>
           </Typography>
         </Toolbar>
       </AppBar>
       <main>
-        {/* Hero unit */}
         <Box
           sx={{
             bgcolor: 'background.paper',
@@ -69,12 +54,10 @@ const ReviewCard = ({reviews, setReviews}) => {
               color="text.primary"
               gutterBottom
             >
-              Album layout
+              Northcoders Hottest Board Game Reviews!
             </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              Something short and leading about the collection below—its contents,
-              the creator, etc. Make it short and sweet, but not too short so folks
-              don&apos;t simply skip over it entirely.
+              Northcoders board games, played & reviewed, so you don't have to.
             </Typography>
             <Stack
               sx={{ pt: 4 }}
@@ -82,23 +65,20 @@ const ReviewCard = ({reviews, setReviews}) => {
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained">Main call to action</Button>
-              <Button variant="outlined">Secondary action</Button>
+              <Button variant="contained">Sort</Button>
+              <Button variant="outlined">Order</Button>
             </Stack>
           </Container>
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">
-          {/* End hero unit */}
           <Grid container spacing={4}>
-            {reviews.map((review) => (
-              <Grid item key={review.review_id} xs={12} sm={6} md={4}>
+              <Grid xs={12} sm={6} md={4}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
                   <CardMedia
                     component="img"
                     sx={{
-                      // 16:9
                       pt: '56.25%',
                     }}
                     image={review.review_img_url}
@@ -118,15 +98,13 @@ const ReviewCard = ({reviews, setReviews}) => {
                     <Button size="small"> <Link to={`/reviews/${review.review_id}`}>View</Link> </Button>
                   </CardActions>
                 </Card>
-              </Grid>
-            ))}
+              </Grid> 
           </Grid>
         </Container>
       </main>
-      {/* Footer */}
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
         <Typography variant="h6" align="center" gutterBottom>
-          Footer
+          Get in Contact
         </Typography>
         <Typography
           variant="subtitle1"
@@ -134,11 +112,10 @@ const ReviewCard = ({reviews, setReviews}) => {
           color="text.secondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+          GitHub: 
         </Typography>
         <Copyright />
       </Box>
-      {/* End footer */}
     </ThemeProvider>
   );
 }
