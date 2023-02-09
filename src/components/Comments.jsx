@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getComments } from "../utils/api"
-import AddComment from "./AddComment"
-import CommentVotes from "./CommentVotes"
+import { Paper, Grid, Avatar, } from "@mui/material"
 
 const Comments = () => {
 const {review_id} = useParams()
@@ -18,13 +17,7 @@ useEffect(() => {
 }, [review_id])
 
 if(comments.length === 0) {
-    return (
-        <section>
-        <p>Comment Section Empty!</p>
-        <AddComment review_id={review_id} comments={comments} setComments={setComments}/>
-        </section>
-    )
-
+    return <p>Comment Section Empty!</p>
 } 
 
 if(isLoading) {
@@ -34,13 +27,22 @@ if(isLoading) {
 return (
     <section>
         {comments.map((comment) => {
-        return <ul className="list" key={comment.comment_id}>
-                <li id='comment-author'> <h3>{comment.author}</h3></li>
-                <li id='comment-body'>{comment.body}</li>
-                <li className="single-review-footer"><CommentVotes votes={comment.votes} review_id={review_id}/></li>
-            </ul>
+        return <Paper key ={comment.comment_id} style={{ padding: "40px 20px" }}>
+        <Grid container wrap="nowrap" spacing={2}/>
+          <Grid item>
+            <Avatar alt="user.img" src={''} />
+          </Grid>
+          <Grid justifyContent="left" item xs zeroMinWidth>
+            <h4 style={{ margin: 0, textAlign: "left" }}>{comment.author}</h4>
+            <p style={{ textAlign: "left" }}>
+              {comment.body}
+            </p>
+            <p style={{ textAlign: "left", color: "gray" }}>
+              {comment.created_at}
+            </p>
+          </Grid>
+          </Paper>
             })}
-            <AddComment review_id={review_id} comments={comments} setComments={setComments}/>
     </section>
 )
 }
