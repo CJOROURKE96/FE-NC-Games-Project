@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getComments } from "../utils/api"
 import AddComment from "./AddComment"
+import CommentVotes from "./CommentVotes"
 
 const Comments = () => {
 const {review_id} = useParams()
@@ -36,7 +37,7 @@ return (
         return <ul className="list" key={comment.comment_id}>
                 <li id='comment-author'> <h3>{comment.author}</h3></li>
                 <li id='comment-body'>{comment.body}</li>
-                <li id='comment-votes'> 👍 {comment.votes} 👎</li>
+                <li className="single-review-footer"><CommentVotes votes={comment.votes} review_id={review_id}/></li>
             </ul>
             })}
             <AddComment review_id={review_id} comments={comments} setComments={setComments}/>
