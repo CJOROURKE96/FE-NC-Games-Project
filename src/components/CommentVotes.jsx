@@ -2,7 +2,7 @@ import Button from '@mui/material/Button';
 import { useState } from "react"
 import { patchVotesByReviewId } from "../utils/api"
 
-const Votes = ({votes, review_id}) => {
+const CommentVotes = ({votes, review_id}) => {
     const [votesChange, setVotesChange] = useState(0)
 
     const incVotes = (increase) => {
@@ -21,4 +21,4 @@ const Votes = ({votes, review_id}) => {
     )
 }
 
-export default Votes
+export default CommentVotes
