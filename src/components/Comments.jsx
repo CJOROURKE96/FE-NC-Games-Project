@@ -20,7 +20,12 @@ useEffect(() => {
 }, [review_id])
 
 if(comments.length === 0) {
-    return <p>Comment Section Empty!</p>
+  return (
+    <section>
+    <p>Comment Section Empty!</p>
+    <AddComment review_id={review_id} comments={comments} setComments={setComments}/>
+    </section>
+)
 } 
 
 if(isLoading) {
@@ -29,7 +34,7 @@ if(isLoading) {
 
 return (
     <section>
-      <AddComment/>
+      <AddComment review_id={review_id} comments={comments} setComments={setComments}/>
         {comments.map((comment) => {
         return <Paper key ={comment.comment_id} style={{ padding: "40px 20px" }}>
         <Grid container wrap="nowrap" spacing={2}/>
@@ -44,8 +49,8 @@ return (
             <p style={{ textAlign: "left", color: "gray" }}>
               {dayjs(comment.created_at).format('DD-MM-YYYY')}
             </p>
-            <CommentVotes votes={comment.votes}/>
-          </Grid>
+            <CommentVotes votes={comment.votes} review_id={review_id}/>          
+            </Grid>
           </Paper>
             })}
     </section>

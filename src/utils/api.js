@@ -51,6 +51,7 @@ const postBody = {
     username: username,
     body: comment
 }
+console.log(review_id)
     return reviewsAPI
     .post(`/reviews/${review_id}/comments`, postBody)
 }
