@@ -4,9 +4,13 @@ const reviewsAPI = axios.create({
     baseURL: 'https://nc-games-k21m.onrender.com/api'
 })
 
-export const getReviews = () => {
+export const getReviews = (category) => {
     return reviewsAPI
-    .get('/reviews')
+    .get('/reviews', {
+        params: {
+            category: category
+        }
+    })
     .then(({data}) => {
         return data.reviews
     })

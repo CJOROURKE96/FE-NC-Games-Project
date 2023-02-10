@@ -14,7 +14,8 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useEffect, useState } from "react"
 import { getReviews } from "../utils/api"
-import {Link} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
+
 
 function Copyright() {
   return (
@@ -31,14 +32,17 @@ const theme = createTheme();
 
 const ReviewCard = ({reviews, setReviews}) => {
     const [isLoading, setIsLoading] = useState(true)
+    const {category} = useParams()
+    console.log(category, "<--")
+
 
     useEffect(() => {
         setIsLoading(true)
-        getReviews().then((reviews) => {
+        getReviews(category).then((reviews) => {
             setReviews(reviews)
             setIsLoading(false)
         })
-    }, [])
+    }, [category])
 
     if (isLoading) {
         return <p>Loading reviews ...</p>
@@ -49,11 +53,17 @@ const ReviewCard = ({reviews, setReviews}) => {
       <AppBar position="relative">
         <Toolbar className='app-bar' >
           <Typography variant="h6" color="inherit" noWrap>
+            <Button className='nav-button' variant='contained'><Link to='/reviews/categories/dexterity'>Dexterity</Link></Button>
+            <Button className='nav-button' variant='contained'><Link to='/reviews/categories/hidden-roles'>Hidden Roles</Link></Button>
+            <Button className='nav-button' variant='contained'><Link to='/reviews/categories/strategy'>Strategy</Link></Button>
+            <Button className='nav-button' variant='contained'><Link to='/reviews/categories/deck-building'>Deck Building</Link></Button>
+            <Button className='nav-button' variant='contained'><Link to='/reviews/categories/engine-building'>Engine Building</Link></Button>
+            <Button className='nav-button' variant='contained'><Link to='/reviews/categories/push-your-luck'>Push Your Luck</Link></Button>
+            <Button className='nav-button' variant='contained'><Link to='/reviews/categories/roll-and-write'>Roll & Write</Link></Button>
           </Typography>
         </Toolbar>
       </AppBar>
       <main>
-        {/* Hero unit */}
         <Box
           sx={{
             bgcolor: 'background.paper',
@@ -69,12 +79,10 @@ const ReviewCard = ({reviews, setReviews}) => {
               color="text.primary"
               gutterBottom
             >
-              Album layout
+              Northcoders Board Game Reviews!
             </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              Something short and leading about the collection below—its contents,
-              the creator, etc. Make it short and sweet, but not too short so folks
-              don&apos;t simply skip over it entirely.
+              Board games played & reviewed, so you don't have to.
             </Typography>
             <Stack
               sx={{ pt: 4 }}
@@ -82,13 +90,12 @@ const ReviewCard = ({reviews, setReviews}) => {
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained">Main call to action</Button>
-              <Button variant="outlined">Secondary action</Button>
+              <Button variant="contained">Sort</Button>
+              <Button variant="outlined">Order</Button>
             </Stack>
           </Container>
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">
-          {/* End hero unit */}
           <Grid container spacing={4}>
             {reviews.map((review) => (
               <Grid item key={review.review_id} xs={12} sm={6} md={4}>
@@ -123,10 +130,9 @@ const ReviewCard = ({reviews, setReviews}) => {
           </Grid>
         </Container>
       </main>
-      {/* Footer */}
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
         <Typography variant="h6" align="center" gutterBottom>
-          Footer
+          Contact 
         </Typography>
         <Typography
           variant="subtitle1"
@@ -134,11 +140,10 @@ const ReviewCard = ({reviews, setReviews}) => {
           color="text.secondary"
           component="p"
         >
-          Something here to give the footer a purpose!
+          GitHub:
         </Typography>
         <Copyright />
       </Box>
-      {/* End footer */}
     </ThemeProvider>
   );
 }
