@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import dayjs from 'dayjs'
 import { getComments } from "../utils/api"
 import { Paper, Grid, Avatar, } from "@mui/material"
 import CommentVotes from './CommentVotes'
+import AddComment from './AddComment'
 
 const Comments = () => {
 const {review_id} = useParams()
@@ -27,6 +29,7 @@ if(isLoading) {
 
 return (
     <section>
+      <AddComment/>
         {comments.map((comment) => {
         return <Paper key ={comment.comment_id} style={{ padding: "40px 20px" }}>
         <Grid container wrap="nowrap" spacing={2}/>
@@ -39,7 +42,7 @@ return (
               {comment.body}
             </p>
             <p style={{ textAlign: "left", color: "gray" }}>
-              {comment.created_at}
+              {dayjs(comment.created_at).format('DD-MM-YYYY')}
             </p>
             <CommentVotes votes={comment.votes}/>
           </Grid>
