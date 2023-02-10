@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getComments } from "../utils/api"
 import { Paper, Grid, Avatar, } from "@mui/material"
+import CommentVotes from './CommentVotes'
 
 const Comments = () => {
 const {review_id} = useParams()
@@ -40,6 +41,7 @@ return (
             <p style={{ textAlign: "left", color: "gray" }}>
               {comment.created_at}
             </p>
+            <CommentVotes votes={comment.votes}/>
           </Grid>
           </Paper>
             })}
