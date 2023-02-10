@@ -12,7 +12,10 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Link} from 'react-router-dom'
+import { useEffect, useState } from "react"
+import { getReviews } from "../utils/api"
+import {Link, useParams} from 'react-router-dom'
+
 
 function Copyright() {
   return (
@@ -27,14 +30,36 @@ function Copyright() {
 
 const theme = createTheme();
 
-const ReviewCard = ({review}) => {
+const ReviewCard = ({reviews, setReviews}) => {
+    const [isLoading, setIsLoading] = useState(true)
+    const {category} = useParams()
+    console.log(category, "<--")
+
+
+    useEffect(() => {
+        setIsLoading(true)
+        getReviews(category).then((reviews) => {
+            setReviews(reviews)
+            setIsLoading(false)
+        })
+    }, [category])
+
+    if (isLoading) {
+        return <p>Loading reviews ...</p>
+    } else 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar className='app-bar' >
           <Typography variant="h6" color="inherit" noWrap>
-            <Button variant='contained'>PLACEHOLDER</Button>
+            <Button className='nav-button' variant='contained'><Link to='/reviews/categories/dexterity'>Dexterity</Link></Button>
+            <Button className='nav-button' variant='contained'><Link to='/reviews/categories/hidden-roles'>Hidden Roles</Link></Button>
+            <Button className='nav-button' variant='contained'><Link to='/reviews/categories/strategy'>Strategy</Link></Button>
+            <Button className='nav-button' variant='contained'><Link to='/reviews/categories/deck-building'>Deck Building</Link></Button>
+            <Button className='nav-button' variant='contained'><Link to='/reviews/categories/engine-building'>Engine Building</Link></Button>
+            <Button className='nav-button' variant='contained'><Link to='/reviews/categories/push-your-luck'>Push Your Luck</Link></Button>
+            <Button className='nav-button' variant='contained'><Link to='/reviews/categories/roll-and-write'>Roll & Write</Link></Button>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -54,10 +79,10 @@ const ReviewCard = ({review}) => {
               color="text.primary"
               gutterBottom
             >
-              Northcoders Hottest Board Game Reviews!
+              Northcoders Board Game Reviews!
             </Typography>
             <Typography variant="h5" align="center" color="text.secondary" paragraph>
-              Northcoders board games, played & reviewed, so you don't have to.
+              Board games played & reviewed, so you don't have to.
             </Typography>
             <Stack
               sx={{ pt: 4 }}
@@ -72,13 +97,15 @@ const ReviewCard = ({review}) => {
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">
           <Grid container spacing={4}>
-              <Grid xs={12} sm={6} md={4}>
+            {reviews.map((review) => (
+              <Grid item key={review.review_id} xs={12} sm={6} md={4}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
                   <CardMedia
                     component="img"
                     sx={{
+                      // 16:9
                       pt: '56.25%',
                     }}
                     image={review.review_img_url}
@@ -98,13 +125,14 @@ const ReviewCard = ({review}) => {
                     <Button size="small"> <Link to={`/reviews/${review.review_id}`}>View</Link> </Button>
                   </CardActions>
                 </Card>
-              </Grid> 
+              </Grid>
+            ))}
           </Grid>
         </Container>
       </main>
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
         <Typography variant="h6" align="center" gutterBottom>
-          Get in Contact
+          Contact 
         </Typography>
         <Typography
           variant="subtitle1"
@@ -112,7 +140,7 @@ const ReviewCard = ({review}) => {
           color="text.secondary"
           component="p"
         >
-          GitHub: 
+          GitHub:
         </Typography>
         <Copyright />
       </Box>
