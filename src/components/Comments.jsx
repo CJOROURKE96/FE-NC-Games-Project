@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import dayjs from 'dayjs'
 import { getComments } from "../utils/api"
 import { Paper, Grid, Avatar, } from "@mui/material"
 import CommentVotes from './CommentVotes'
@@ -39,7 +40,7 @@ return (
               {comment.body}
             </p>
             <p style={{ textAlign: "left", color: "gray" }}>
-              {comment.created_at}
+              {dayjs(comment.created_at).format('DD-MM-YYYY')}
             </p>
             <CommentVotes votes={comment.votes}/>
           </Grid>
