@@ -35,7 +35,6 @@ const ReviewCard = ({reviews, setReviews}) => {
     const [sortBy, setSortBy] = useState('title')
     const [order, setOrder] = useState('DESC')
     const {category} = useParams()
-    console.log(order, "<-- order")
 
     useEffect(() => {
         setIsLoading(true)
