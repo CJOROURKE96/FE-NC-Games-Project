@@ -32,17 +32,18 @@ const theme = createTheme();
 
 const ReviewCard = ({reviews, setReviews}) => {
     const [isLoading, setIsLoading] = useState(true)
+    const [sortBy, setSortBy] = useState('title')
+    const [order, setOrder] = useState('DESC')
     const {category} = useParams()
-    console.log(category, "<--")
-
+    console.log(order, "<-- order")
 
     useEffect(() => {
         setIsLoading(true)
-        getReviews(category).then((reviews) => {
+        getReviews(category, sortBy, order).then((reviews) => {
             setReviews(reviews)
             setIsLoading(false)
         })
-    }, [category])
+    }, [category, sortBy, order])
 
     if (isLoading) {
         return <p>Loading reviews ...</p>
@@ -90,8 +91,21 @@ const ReviewCard = ({reviews, setReviews}) => {
               spacing={2}
               justifyContent="center"
             >
-              <Button variant="contained">Sort</Button>
-              <Button variant="outlined">Order</Button>
+              
+              <Button variant="contained" onClick={() => setSortBy('designer')}>Designer</Button>
+              <Button variant="contained" onClick={() => setSortBy('owner')}>Owner</Button>
+              <Button variant="contained" onClick={() => setSortBy('created_at')}>Created At</Button>
+              <Button variant="contained" onClick={() => setSortBy('votes')}>Votes</Button>
+              <Button variant="contained" onClick={() => setSortBy('title')}>Title</Button>
+            </Stack>
+            <Stack
+            sx={{pt: 4}}
+            direction="row"
+            spacing={2}
+            justifyContent="center">
+              <Button variant="contained" onClick={() => setOrder('ASC')}>ASC</Button>
+              <Button variant="contained" onClick={() => setOrder('DESC')}>DESC</Button>
+
             </Stack>
           </Container>
         </Box>

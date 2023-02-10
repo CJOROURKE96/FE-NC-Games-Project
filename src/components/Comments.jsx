@@ -4,6 +4,7 @@ import dayjs from 'dayjs'
 import { getComments } from "../utils/api"
 import { Paper, Grid, Avatar, } from "@mui/material"
 import CommentVotes from './CommentVotes'
+import AddComment from './AddComment'
 
 const Comments = () => {
 const {review_id} = useParams()
@@ -28,6 +29,7 @@ if(isLoading) {
 
 return (
     <section>
+      <AddComment/>
         {comments.map((comment) => {
         return <Paper key ={comment.comment_id} style={{ padding: "40px 20px" }}>
         <Grid container wrap="nowrap" spacing={2}/>
