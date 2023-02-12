@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { postComment } from "../utils/api"
-import { Button } from "@mui/material"
+import { Button, TextField } from "@mui/material"
 
 const AddComment = ({review_id, comments, setComments}) => {
     const username = 'cooljmessy'
@@ -17,10 +17,9 @@ const AddComment = ({review_id, comments, setComments}) => {
     return (
         <section>
         <form id="comment-form" onSubmit={handleSubmit}>
-            <label id="comment-label" htmlFor="post-comment">Comment:</label>
-            <textarea id='post-comment' value={newComment} onChange={(event) => {
+            <TextField placeholder="Comment" id='post-comment' value={newComment} onChange={(event) => {
                 setNewComment(event.target.value)
-            }}></textarea>
+            }}></TextField>
         <Button type="submit" id="comment-button" variant='outlined'>Submit Comment!</Button>
         </form>
         </section>
