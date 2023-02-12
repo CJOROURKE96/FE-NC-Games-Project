@@ -31,17 +31,13 @@
     border-color: rgb(106, 106, 106);
 }
 
-.single-review-footer {
-    display: inline-block;
-    padding: 10px
+.review-comment-count {
+    padding: 20px
 }
 
 #review-owner {
-    position: relative;
-    right: 195px;
-    border-style: dotted;
-    border-color: blueviolet;
     color: blueviolet;
+    padding: 10px
 }
 
 #single-review-body {
@@ -54,10 +50,6 @@
 #review-comments {
     position: relative;
     top: 25px
-}
-
-.review-comment-count {
-    padding: 20px
 }
 
 #comment-author {
