@@ -29,11 +29,15 @@ const SingleReviewCard = ({review, setReview}) => {
                         <li className="single-review-heading"> <h2 id="review-title"> {review.title}</h2> </li>
                         <li className="single-review-heading" id='game-designer'>Game Designer: {review.designer}</li>
                     </Grid>
-                    <Grid>
+                    <Grid
+                    container
+                    direction="row"
+                    justifyContent="center"
+                    alignItems="center">
                         <li className="review-img"><img src={review.review_img_url} alt={review.title}></img></li>
                     </Grid>
                     <Grid
-                    constainer-spacing={2}>
+                    container-spacing={2}>
                         <li className="single-review-footer" id='review-owner'>Review Author: {review.owner}</li>
                         <li className="single-review-footer"><ReviewVotes votes={review.votes} review_id={review_id}/></li>
                     </Grid>
