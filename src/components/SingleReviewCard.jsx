@@ -25,6 +25,10 @@ const SingleReviewCard = ({review, setReview}) => {
         <section>
             <ul className="list">
                     <Grid 
+                    container
+                    direction="row"
+                    justifyContent="center"
+                    alignItems="center"
                     container-spacing={2}>
                         <li className="single-review-heading"> <h2 id="review-title"> {review.title}</h2> </li>
                         <li className="single-review-heading" id='game-designer'>Game Designer: {review.designer}</li>
@@ -37,11 +41,21 @@ const SingleReviewCard = ({review, setReview}) => {
                         <li className="review-img"><img src={review.review_img_url} alt={review.title}></img></li>
                     </Grid>
                     <Grid
+                    container
+                    direction="row"
+                    justifyContent="center"
+                    alignItems="center"
                     container-spacing={2}>
                         <li className="single-review-footer" id='review-owner'>Review Author: {review.owner}</li>
                         <li className="single-review-footer"><ReviewVotes votes={review.votes} review_id={review_id}/></li>
                     </Grid>
+                    <Grid 
+                    container
+                    direction="row"
+                    justifyContent="center"
+                    alignItems="center">
                         <li id="single-review-body"> {review.review_body} </li>
+                    </Grid>
                         <li className="review-comment-count"> <h3 id='comment-count-heading'> <Link to={`/reviews/${review_id}/comments`}> Comment Section: </Link> </h3></li>
                         <li><Comments /></li>
                     
