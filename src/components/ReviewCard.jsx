@@ -53,13 +53,13 @@ const ReviewCard = ({reviews, setReviews}) => {
       <AppBar position="relative">
         <Toolbar className='app-bar' >
           <Typography variant="h6" color="inherit" noWrap>
-            <Button className='nav-button' variant='contained'><Link to='/categories/dexterity'>Dexterity</Link></Button>
-            <Button className='nav-button' variant='contained'><Link to='/categories/hidden-roles'>Hidden Roles</Link></Button>
-            <Button className='nav-button' variant='contained'><Link to='/categories/strategy'>Strategy</Link></Button>
-            <Button className='nav-button' variant='contained'><Link to='/categories/deck-building'>Deck Building</Link></Button>
-            <Button className='nav-button' variant='contained'><Link to='/categories/engine-building'>Engine Building</Link></Button>
-            <Button className='nav-button' variant='contained'><Link to='/categories/push-your-luck'>Push Your Luck</Link></Button>
-            <Button className='nav-button' variant='contained'><Link to='/categories/roll-and-write'>Roll & Write</Link></Button>
+            <Button className='nav-button' variant='contained'><Link className='link-text' to='/categories/dexterity'>Dexterity</Link></Button>
+            <Button className='nav-button' variant='contained'><Link className='link-text' to='/categories/hidden-roles'>Hidden Roles</Link></Button>
+            <Button className='nav-button' variant='contained'><Link className='link-text' to='/categories/strategy'>Strategy</Link></Button>
+            <Button className='nav-button' variant='contained'><Link className='link-text' to='/categories/deck-building'>Deck Building</Link></Button>
+            <Button className='nav-button' variant='contained'><Link className='link-text' to='/categories/engine-building'>Engine Building</Link></Button>
+            <Button className='nav-button' variant='contained'><Link className='link-text' to='/categories/push-your-luck'>Push Your Luck</Link></Button>
+            <Button className='nav-button' variant='contained'><Link className='link-text' to='/categories/roll-and-write'>Roll & Write</Link></Button>
           </Typography>
         </Toolbar>
       </AppBar>

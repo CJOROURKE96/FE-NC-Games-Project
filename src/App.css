@@ -83,3 +83,8 @@ button[disabled] {
     position: relative;
     top: 10px
 }
+
+.link-text {
+    color: whitesmoke;
+    text-decoration: none
+}
