@@ -153,7 +153,7 @@ const ReviewCard = ({reviews, setReviews}) => {
           color="text.secondary"
           component="p"
         >
-          GitHub:
+          GitHub: https://github.com/CJOROURKE96 
         </Typography>
         <Copyright />
       </Box>
