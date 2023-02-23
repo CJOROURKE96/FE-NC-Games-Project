@@ -5,7 +5,6 @@ const reviewsAPI = axios.create({
 })
 
 export const getReviews = (category, sortBy, orderBy) => {
-    console.log(orderBy, "<-- order")
     return reviewsAPI
     .get('/reviews', {
         params: {
