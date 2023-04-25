@@ -5,11 +5,14 @@
 
 .app-bar {
     background-color: royalblue;
+    justify-content: center;
+    margin: 5px;
 }
 
 .Header {
     color: rgb(134, 40, 248);
     background-color: whitesmoke;
+    text-decoration: none;
 }
 
 .list {
@@ -32,7 +35,8 @@
 }
 
 .review-comment-count {
-    padding: 20px
+    padding: 5px;
+    margin-top: 25px;
 }
 
 #review-owner {
@@ -43,7 +47,8 @@
 #single-review-body {
     border-style: double;
     position: relative;
-    top: 25px
+    top: 25px;
+    width: 50%;
 
 }
 
@@ -81,10 +86,25 @@ button[disabled] {
 
 #comment-button {
     position: relative;
-    top: 10px
+    margin: 10px;
 }
 
 .link-text {
     color: whitesmoke;
     text-decoration: none
+}
+
+.viewButton {
+    text-decoration: none;
+}
+
+.nav-button {
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.comment-link {
+    text-decoration: none;
 }

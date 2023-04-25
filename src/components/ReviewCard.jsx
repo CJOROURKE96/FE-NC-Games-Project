@@ -51,15 +51,43 @@ const ReviewCard = ({reviews, setReviews}) => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppBar position="relative">
-        <Toolbar className='app-bar' >
-          <Typography variant="h6" color="inherit" noWrap>
-            <Button className='nav-button' variant='contained'><Link className='link-text' to='/categories/dexterity'>Dexterity</Link></Button>
-            <Button className='nav-button' variant='contained'><Link className='link-text' to='/categories/hidden-roles'>Hidden Roles</Link></Button>
-            <Button className='nav-button' variant='contained'><Link className='link-text' to='/categories/strategy'>Strategy</Link></Button>
-            <Button className='nav-button' variant='contained'><Link className='link-text' to='/categories/deck-building'>Deck Building</Link></Button>
-            <Button className='nav-button' variant='contained'><Link className='link-text' to='/categories/engine-building'>Engine Building</Link></Button>
-            <Button className='nav-button' variant='contained'><Link className='link-text' to='/categories/push-your-luck'>Push Your Luck</Link></Button>
-            <Button className='nav-button' variant='contained'><Link className='link-text' to='/categories/roll-and-write'>Roll & Write</Link></Button>
+        <Toolbar className="app-bar">
+          <Typography variant="h6" color="inherit">
+            <Button className="nav-button" variant="contained">
+              <Link className="link-text" to="/categories/dexterity">
+                Dexterity
+              </Link>
+            </Button>
+            <Button className="nav-button" variant="contained">
+              <Link className="link-text" to="/categories/hidden-roles">
+                Hidden Roles
+              </Link>
+            </Button>
+            <Button className="nav-button" variant="contained">
+              <Link className="link-text" to="/categories/strategy">
+                Strategy
+              </Link>
+            </Button>
+            <Button className="nav-button" variant="contained">
+              <Link className="link-text" to="/categories/deck-building">
+                Deck Building
+              </Link>
+            </Button>
+            <Button className="nav-button" variant="contained">
+              <Link className="link-text" to="/categories/engine-building">
+                Engine Building
+              </Link>
+            </Button>
+            <Button className="nav-button" variant="contained">
+              <Link className="link-text" to="/categories/push-your-luck">
+                Push Your Luck
+              </Link>
+            </Button>
+            <Button className="nav-button" variant="contained">
+              <Link className="link-text" to="/categories/roll-and-write">
+                Roll & Write
+              </Link>
+            </Button>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -81,7 +109,12 @@ const ReviewCard = ({reviews, setReviews}) => {
             >
               Northcoders Board Game Reviews!
             </Typography>
-            <Typography variant="h5" align="center" color="text.secondary" paragraph>
+            <Typography
+              variant="h5"
+              align="center"
+              color="text.secondary"
+              paragraph
+            >
               Board games played & reviewed, so you don't have to.
             </Typography>
             <Stack
@@ -90,21 +123,37 @@ const ReviewCard = ({reviews, setReviews}) => {
               spacing={2}
               justifyContent="center"
             >
-              
-              <Button variant="contained" onClick={() => setSortBy('designer')}>Designer</Button>
-              <Button variant="contained" onClick={() => setSortBy('owner')}>Owner</Button>
-              <Button variant="contained" onClick={() => setSortBy('created_at')}>Created At</Button>
-              <Button variant="contained" onClick={() => setSortBy('votes')}>Votes</Button>
-              <Button variant="contained" onClick={() => setSortBy('title')}>Title</Button>
+              <Button variant="contained" onClick={() => setSortBy('designer')}>
+                Designer
+              </Button>
+              <Button variant="contained" onClick={() => setSortBy('owner')}>
+                Owner
+              </Button>
+              <Button
+                variant="contained"
+                onClick={() => setSortBy('created_at')}
+              >
+                Created At
+              </Button>
+              <Button variant="contained" onClick={() => setSortBy('votes')}>
+                Votes
+              </Button>
+              <Button variant="contained" onClick={() => setSortBy('title')}>
+                Title
+              </Button>
             </Stack>
             <Stack
-            sx={{pt: 4}}
-            direction="row"
-            spacing={2}
-            justifyContent="center">
-              <Button variant="contained" onClick={() => setOrder('ASC')}>ASC</Button>
-              <Button variant="contained" onClick={() => setOrder('DESC')}>DESC</Button>
-
+              sx={{ pt: 4 }}
+              direction="row"
+              spacing={2}
+              justifyContent="center"
+            >
+              <Button variant="contained" onClick={() => setOrder('ASC')}>
+                ASC
+              </Button>
+              <Button variant="contained" onClick={() => setOrder('DESC')}>
+                DESC
+              </Button>
             </Stack>
           </Container>
         </Box>
@@ -113,7 +162,11 @@ const ReviewCard = ({reviews, setReviews}) => {
             {reviews.map((review) => (
               <Grid item key={review.review_id} xs={12} sm={6} md={4}>
                 <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                  sx={{
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                  }}
                 >
                   <CardMedia
                     component="img"
@@ -135,7 +188,15 @@ const ReviewCard = ({reviews, setReviews}) => {
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small"> <Link to={`/reviews/${review.review_id}`}>View</Link> </Button>
+                    <Button size="small">
+                      {' '}
+                      <Link
+                        className="viewButton"
+                        to={`/reviews/${review.review_id}`}
+                      >
+                        View
+                      </Link>{' '}
+                    </Button>
                   </CardActions>
                 </Card>
               </Grid>
@@ -145,7 +206,7 @@ const ReviewCard = ({reviews, setReviews}) => {
       </main>
       <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
         <Typography variant="h6" align="center" gutterBottom>
-          Contact 
+          Contact
         </Typography>
         <Typography
           variant="subtitle1"

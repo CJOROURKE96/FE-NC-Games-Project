@@ -56,7 +56,7 @@ const SingleReviewCard = ({review, setReview}) => {
                     alignItems="center">
                         <li id="single-review-body"> {review.review_body} </li>
                     </Grid>
-                        <li className="review-comment-count"> <h3 id='comment-count-heading'> <Link to={`/reviews/${review_id}/comments`}> Comment Section: </Link> </h3></li>
+                        <li className="review-comment-count"> <h3 id='comment-count-heading'> <Link className="comment-link" to={`/reviews/${review_id}/comments`}> Comment Section: </Link> </h3></li>
                         <li><Comments /></li>
                     
                     </ul>
